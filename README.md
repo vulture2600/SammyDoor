@@ -17,6 +17,8 @@ Two servos, one large, one micro for the door and lock respectively.
 Magnetic door sensor.
 Various 2, 3 and 4 pin connectors.
 
+Special thanks to https://github.com/MarksBench for his help with his EEPROM library. I had to edit one line in busio.py to allow it to talk to the secondary I2C bus. See busio2.py.
+
 
 
 
