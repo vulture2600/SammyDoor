@@ -1,3 +1,7 @@
+# /usr/local/lob/python3.7/dist-packages
+# modified busio.py library to talk to i2c bus #6, which is created to specifically talk to EEPROM on the protoshield
+
+
 """
 `busio` - Bus protocol support like I2C and SPI
 =================================================
