@@ -19,5 +19,6 @@ Instructions for setting up SammyDoor on a new Raspberry Pi:
 16) Enable pigpiod: sudo systemctl enable pigpiod
 17) Flask-cors: sudo pip3 install -U flask-cors
 18) make new directory /home/pi/SammyDoor and copy sammyDoor.py in to it.
-19) copy 
-19) Enable at boot: sudo nano /etc/rc.local add “sudo python /home/pi/SammyDoor/sammyDoor.py &”
+19) copy busio2 and mb_24x256_512_CP.py to /usr/local/lib/python3.7/dist-packages
+20) Enable at boot: sudo nano /etc/rc.local add “sudo python /home/pi/SammyDoor/sammyDoor.py &”
+21) restart pi.
