@@ -1,1 +1,23 @@
-{"url": "https://docs.google.com/open?id=1L9S3B5qZ5UGmTmm5wGaGZi3MKCq-rbtphZJ7t3ViRQ8", "doc_id": "1L9S3B5qZ5UGmTmm5wGaGZi3MKCq-rbtphZJ7t3ViRQ8", "email": "steve.a.mccluskey@gmail.com"}
+Instructions for setting up SammyDoor on a new Raspberry Pi:
+
+
+1) Install Raspbian OS Lite
+2) Enable all interfaces, i2c, oneWire, SPI, SSH, etc.
+3) Install FTP: sudo apt-get install vsftpd
+4) Install python 3: sudo apt-get install python3
+5) Install flask: sudo apt-get install python3-flask
+6) Install pip: sudo apt-get install python3-pip
+7) Sudo pip3 install --upgrade setuptools
+8) Sudo pip3 install --upgrade adafruit-python-shell
+9) wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+10) Sudo python3 raspi-blinka.py
+11) Install adafruit LCD driver: sudo pip3 install adafruit-circuitpython-charlcd
+12) Add second i2c bus: sudo nano /boot/config.txt
+13) After “dtparam=spi-on” add “dtoverlay=i2c-gpio,bus=6,i2c_gpio_delay_us=1,i2c_gpio_sda=0,i2c_gpio_scl=1
+14) Install PiGpio: sudo apt-get install pigpio
+15) sudo apt-get install python-pigpio python3-pigpio
+16) Enable pigpiod: sudo systemctl enable pigpiod
+17) Flask-cors: sudo pip3 install -U flask-cors
+18) make new directory /home/pi/SammyDoor and copy sammyDoor.py in to it.
+19) copy 
+19) Enable at boot: sudo nano /etc/rc.local add “sudo python /home/pi/SammyDoor/sammyDoor.py &”
