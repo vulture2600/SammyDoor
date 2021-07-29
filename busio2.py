@@ -63,9 +63,12 @@ class I2C(Lockable):
             from machine import I2C as _I2C
         from microcontroller.pin import i2cPorts
 
+        
+ # modified to allow talking to bus #6:
         for portId, portScl, portSda in i2cPorts:
             try:
                 if scl == portScl and sda == portSda:
+                    #changed first argument to 6:
                     self._i2c = _I2C(6, mode=_I2C.MASTER, baudrate=frequency)
                     break
             except RuntimeError:
