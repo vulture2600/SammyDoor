@@ -627,9 +627,10 @@ def mainLoop():
                     doorOpenTime = (beamStopTime + beamSensorTimeoutTime)
                     if ((time.time() - doorOpenTime ) > doorOpenHoldTimeoutTime):
                         actuateDoor(0)
-                        doorCloseTime = doorOpenTime + beamStopTime + doorOpenHoldTimeoutTime
-                        time.sleep(lockTimeoutTime)
-                        actuateLock(1)
+                        if (doorState == 0) :
+                            doorCloseTime = doorOpenTime + beamStopTime + doorOpenHoldTimeoutTime
+                            time.sleep(lockTimeoutTime)
+                            actuateLock(1)
 
         if (not lockInEnabled):
             actuateLock(0)
