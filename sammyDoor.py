@@ -44,23 +44,23 @@
 # 39) GND
 # 40) GPIO21 -> PCM DOUT
 
-from typing import AnyStr
+from   typing import AnyStr
 import board
 import bitbangio
 import busio
 import busio2
 import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd
 import RPi.GPIO as GPIO
-from board import *
+from   board import *
 import digitalio
 import time
-from time import sleep
+from   time import sleep
 import mb_24x256_512_CP
 import asyncio
 import pigpio
-from flask import Flask
-from flask import request
-from flask_cors import CORS
+from   flask import Flask
+from   flask import request
+from   flask_cors import CORS
 import atexit
 import threading
 import os
@@ -69,16 +69,16 @@ import logging
 ####################################################
 #lcd setup:
 lcd_columns = 16
-lcd_rows = 2
+lcd_rows    = 2
 
 i2c = busio.I2C(board.SCL, board.SDA)
 lcd = character_lcd.Character_LCD_RGB_I2C(i2c, lcd_columns, lcd_rows)
 
-white = [100, 100, 100]
-green = [0, 100, 0]
-red = [100, 0, 0]
-blue = [0, 0, 100]
-purple = [100, 0, 100]
+white  = [100, 100, 100]
+green  = [0,   100, 0]
+red    = [100, 0,   0]
+blue   = [0,   0,   100]
+purple = [100, 0,   100]
 yellow = [100, 100, 0]
 
 #############################################
@@ -93,15 +93,15 @@ memory = mb_24x256_512_CP.mb_24x256_512_CP(i2c6, i2c_address, EEPROM_DEVICE)
 
 #############################################################
 #pin assignment stuff:
-doorServo = 18
-lockServo = 27
-breakBeamSensor = 22
-motionSensor = 17
+doorServo          = 18
+lockServo          = 27
+breakBeamSensor    = 22
+motionSensor       = 17
 magneticDoorSensor = 23
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(breakBeamSensor, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-GPIO.setup(motionSensor, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+GPIO.setup(breakBeamSensor,    GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(motionSensor,       GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(magneticDoorSensor, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 #servos:
@@ -713,8 +713,8 @@ lcd.clear()
 print("starting server.")
 updateScreen() #write screen upon startup
 
-GPIO.add_event_detect(motionSensor, GPIO.BOTH, callback = motionSensorInterrupt, bouncetime = 5)
-GPIO.add_event_detect(breakBeamSensor, GPIO.BOTH, callback = beamSensorInterrupt, bouncetime = 5)
+GPIO.add_event_detect(motionSensor,    GPIO.BOTH, callback = motionSensorInterrupt, bouncetime = 5)
+GPIO.add_event_detect(breakBeamSensor, GPIO.BOTH, callback = beamSensorInterrupt,   bouncetime = 5)
 
 mainLoopThread = threading.Thread(target = mainLoop)
 mainLoopThread.start()
