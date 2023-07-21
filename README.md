@@ -8,11 +8,17 @@ I then powered up and configured the new Pi and installed it where the arduino u
 During this project, I learned several new python technologies including Flask, and threading, and gained more experience with Python over all. It was also my first project using Microsoft VS Code for the entire development. I've recently started using it and will never go back.  
 
 Hardware used:
+
 Raspberry Pi model 3B+: https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/
+
 Adafruit Perma-Proto hat for Pi with EEPROM: https://www.adafruit.com/product/2314
+
 Adafruit RGB Positive 16x2 LCD + Keypad Kid for Raspberry Pi: https://www.adafruit.com/product/1109
+
 SparkFun Open PIR: https://www.sparkfun.com/products/13968
+
 IR Break Beam Sensors: https://www.adafruit.com/product/2167
+
 Two servos, one large, one micro for the door and lock respectively.
 Magnetic door sensor.
 Various 2, 3 and 4 pin connectors.
